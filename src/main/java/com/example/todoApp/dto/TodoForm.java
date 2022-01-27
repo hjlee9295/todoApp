@@ -9,10 +9,11 @@ import lombok.ToString;
 
 public class TodoForm {
 
+    private Long id;
     private String title;
     private String content;
 
     public Todo toEntity() {
-        return new Todo(null, title, content);
+        return new Todo(id, title, content);
     }
 }

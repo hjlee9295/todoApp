@@ -1,0 +1,17 @@
+{{>layouts/header}}
+{{#todo}}
+<form class ="container" action="/todos/update" method="post">
+    <input name="id" type="hidden" value="{{id}}" />
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">To do Item</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title of To do item" name="title" value="{{title}}">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Details</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Details of the task" name="content" value="{{content}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/todos/{{todo.id}}">To List</a>
+</form>
+{{/todo}}
+{{>layouts/footer}}

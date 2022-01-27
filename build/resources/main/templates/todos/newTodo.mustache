@@ -1,5 +1,5 @@
 {{>layouts/header}}
-<form class ="container" action="/todo/create" method="post">
+<form class ="container" action="/todos/create" method="post">
     <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">To do Item</label>
         <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Title of To do item" name="title">
@@ -9,5 +9,7 @@
         <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Details of the task" name="content">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/todos">To List</a>
 </form>
+
 {{>layouts/footer}}
