@@ -1,8 +1,10 @@
 package com.example.todoApp.controller;
 
+import com.example.todoApp.dto.CommentDto;
 import com.example.todoApp.dto.TodoForm;
 import com.example.todoApp.entity.Todo;
 import com.example.todoApp.repository.TodoRepository;
+import com.example.todoApp.service.CommentService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,9 @@ public class todoController {
 
     @Autowired // springboot가 미리 생성해놓은 객체를 자동으로 연결
     private TodoRepository todoRepository;
+
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/todos/newTodo")
     public String newTodo(Model model) {
@@ -50,9 +55,11 @@ public class todoController {
 
         //1. ID로 데이터 가져옴
         Todo todoEntity = todoRepository.findById(id).orElse(null );
+        List<CommentDto> commentDtos = commentService.comments(id);
 
         //2. 가져온 데이터 모델에 등록
         model.addAttribute("todo", todoEntity);
+        model.addAttribute("commentDtos", commentDtos);
 
         //3. 보여줄 페이지 설정
         return "todos/show";

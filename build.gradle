@@ -13,14 +13,21 @@ repositories {
 }
 
 dependencies {
-	compileOnly 'org.projectlombok:lombok'
+
+	//Postgre SQL driver
+	runtimeOnly 'org.postgresql:postgresql'
+
+	implementation 'com.google.guava:guava:31.0.1-jre'
+    compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation 'org.springframework.boot:spring-boot-starter'
 	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'org.postgresql:postgresql'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

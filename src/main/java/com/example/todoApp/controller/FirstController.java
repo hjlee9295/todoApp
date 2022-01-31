@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controller //일반 컨트롤러는 페이지를 반환 <> RestController는 데이터를 반환
 public class FirstController {
 
     @GetMapping("/hi")
